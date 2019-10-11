@@ -1,44 +1,31 @@
-# conda-hdmi2usb-packages
+# litex-conda-compilers
 
-Conda build recipes for HDMI2USB-litex-firmware build dependencies.
+Conda build recipes for C compilers needed for LiteX environments.
 
-Basically, anything which hasn't gotten a proper package at https://launchpad.net/~timvideos/+archive/ubuntu/hdmi2usb
+The C compilers consist of;
 
-# Toolchains
+| Tool     | Version | Target     | C Library                                            | C Library Version  |
+| -------- | ------- | ---------- | ---------------------------------------------------- | ------------------ |
+| binutils | 2.32    | Bare metal |                                                      |                    |
+| gcc      | 9.1.0   | Bare metal | no C library                                         |                    |
+| gcc      | 9.1.0   | Bare metal | [picolibc](https://github.com/keith-packard/picolibc)| WIP                |
+| gcc      | 9.1.0   | Bare metal | [newlib](https://sourceware.org/newlib/)             | 3.1.0              |
+| gcc      | 9.1.0   | Linux      | [musl](https://musl-libc.org)                        | git ac304227       |
+| gdb      | 8.2     | N/A        |                                                      |                    |
 
-## LiteX "soft-CPU" support
+The architectures currently supported are;
 
-The LiteX system supports both a `lm32` and `or1k` "soft-CPU" implementations.
-
-Current versions are;
-
- * binutils - 2.31.0
- * gcc - 8.2.0
- * gcc+newlib - 8.2.0 + 3.0.0
- * gdb - 8.2
-
-### lm32-elf
-
- * All come from upstream.
-
-### or1k-elf
-
- * binutils, gdb & newlib - upstream
- * gcc - Rebase of Stafford Horn's gcc 9.0 patches
-
-## riscv32-elf
-
- * All come from upstream.
+| Architecture Name | Abbrev    | Soft Core |
+| ----------------- | --------- | --------- |
+| LatticeMico32     | `lm32`    | [lm32]() |
+| RISC-V 32bit      | `rv32`    | [VexRISCV](), [picorv32](), [minvera](), [tiaga?]() |
+| RISC-V 64bit      | `rv64`    | [Rocket](), [BlackParrot?]() |
+| OpenRISC1000      | `or1k`    | [mor1k]() |
+| PowerPC 64bit     | `ppc64le` | [Microwatt]() |
 
 ## Cypress FX2 support
 
  * sdcc (Current version: 3.5.0)
-
-# Support Tools
-
-## OpenOCD
-
-Tool for JTAG programming.
 
 # Building
 
@@ -116,11 +103,12 @@ sudo apt-get install wget git
 # Packages from ~/.travis.yml; realpath is in coreutils in Ubuntu 18.04
 # Plus libtool and pkg-config, which are needed for openocd
 #
-#sudo apt-get install realpath autoconf automake build-essential gperf libftdi-dev libudev-dev libudev1 libusb-1.0-0-dev libusb-dev texinfo
-sudo apt-get install coreutils autoconf automake build-essential gperf libftdi-dev libudev-dev libudev1 libusb-1.0-0-dev libusb-dev texinfo libtool pkg-config
+# sudo apt-get install realpath
+sudo apt-get install coreutils
 
-git clone https://github.com/timvideos/conda-hdmi2usb-packages.git
-conda-hdmi2usb-packages/conda-get.sh
+git clone https://github.com/litex-hub/litex-conda-compilers.git
+cd litex-conda-compilers
+./conda-get.sh
 
 # Adapted from .travis/common.sh
 get_built_package() {
