@@ -4,7 +4,7 @@ package:
 
 source:
   - git_url: https://git.zv.io/toolchains/musl-cross-make.git
-    git_rev: musl-git
+    git_rev: master
 
 build:
   # number: 201803050325
