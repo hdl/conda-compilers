@@ -21,6 +21,7 @@ build:
 
 requirements:
   build:
+   - texinfo
    - {{ compiler('c') }}
   run:
   {% for package in resolved_packages('host') %}
