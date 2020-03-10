@@ -1,0 +1,31 @@
+diff --git a/Makefile b/Makefile
+index 261506c..b7dc423 100644
+--- a/Makefile
++++ b/Makefile
+@@ -117,7 +117,7 @@ musl-riscv-%:
+ 	case "$@" in */*) exit 1 ;; esac
+ 	rm -rf $@.tmp
+ 	mkdir $@.tmp
+-	( cd $@.tmp && tar zxvf - ) < $<
++	( cd $@.tmp && tar zxf - ) < $<
+ 	rm -rf $@
+ 	touch $@.tmp/$(patsubst %.orig,%,$@)
+ 	mv $@.tmp/$(patsubst %.orig,%,$@) $@
+@@ -127,7 +127,7 @@ musl-riscv-%:
+ 	case "$@" in */*) exit 1 ;; esac
+ 	rm -rf $@.tmp
+ 	mkdir $@.tmp
+-	( cd $@.tmp && tar jxvf - ) < $<
++	( cd $@.tmp && tar jxf - ) < $<
+ 	rm -rf $@
+ 	touch $@.tmp/$(patsubst %.orig,%,$@)
+ 	mv $@.tmp/$(patsubst %.orig,%,$@) $@
+@@ -137,7 +137,7 @@ musl-riscv-%:
+ 	case "$@" in */*) exit 1 ;; esac
+ 	rm -rf $@.tmp
+ 	mkdir $@.tmp
+-	( cd $@.tmp && tar Jxvf - ) < $<
++	( cd $@.tmp && tar Jxf - ) < $<
+ 	rm -rf $@
+ 	touch $@.tmp/$(patsubst %.orig,%,$@)
+ 	mv $@.tmp/$(patsubst %.orig,%,$@) $@

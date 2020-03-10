@@ -3,8 +3,10 @@ package:
   version: {{ environ.get('GITREV').replace('-', '_') }}
 
 source:
-  - git_url: https://git.zv.io/toolchains/musl-cross-make.git
-    git_rev: master
+  git_url: https://git.zv.io/toolchains/musl-cross-make.git
+  git_rev: master
+  patches:
+    - 0001-quieter-tar.patch
 
 build:
   # number: 201803050325
