@@ -46,6 +46,7 @@ build:
 
 requirements:
   build:
+    - texinfo
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
