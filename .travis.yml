@@ -144,10 +144,10 @@ jobs:
            - x86_64-elf-gcc
      env:
      - PACKAGE=sdcc
-   # - stage: "Other Tools"
-   #   os: windows
-   #   env:
-   #   - PACKAGE=sdcc
+   - stage: "Other Tools"
+     os: windows
+     env:
+     - PACKAGE=sdcc
 
 before_install:
  - source $TRAVIS_BUILD_DIR/.travis/common.sh
