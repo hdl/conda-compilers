@@ -1,20 +1,21 @@
-{% set version = '9.1.0' %}
+{% set version = '9.2.0' %}
+{% set binutilsversion = '2.34' %}
 
 package:
   name: gcc-{{ environ.get('TOOLCHAIN_ARCH') }}-linux-musl
   version: {{ version }}
 
 source:
-  - url: https://ftp.gnu.org/gnu/binutils/binutils-2.32.tar.xz
-    fn: binutils-2.32.tar.bz2
-    sha256: 0ab6c55dd86a92ed561972ba15b9b70a8b9f75557f896446c82e8b36e473ee04
+  - url: https://ftp.gnu.org/gnu/binutils/binutils-{{ binutilsversion }}.tar.xz
+    fn: binutils-{{ binutilsversion }}.tar.bz2
+    sha256: f00b0e8803dc9bab1e2165bd568528135be734df3fabf8d0161828cd56028952
     folder: binutils
   - git_url: https://github.com/mithro/kernel-headers.git
     git_rev: master
     folder: kernel-headers
   - url: http://ftp.gnu.org/gnu/gcc/gcc-{{ version }}/gcc-{{ version }}.tar.xz
     fn: gcc-{{ version }}.tar.gz
-    sha256: 79a66834e96a6050d8fe78db2c3b32fb285b230b855d0a66288235bc04b327a0
+    sha256: ea6ef08f121239da5695f76c9b33637a118dcf63e24164422231917fa61fb206
     folder: gcc
   - git_url: git://git.musl-libc.org/musl
     git_rev: ac304227bb3ea1787d581f17d76a5f5f3abff51f
@@ -46,6 +47,7 @@ build:
 
 requirements:
   build:
+    - texinfo
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:

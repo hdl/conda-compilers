@@ -1,4 +1,4 @@
-{% set version = '8.2' %}
+{% set version = '9.1' %}
 
 package:
   name: gdb-{{ environ.get('TOOLCHAIN_ARCH') }}-elf
@@ -7,7 +7,7 @@ package:
 source:
   fn: gdb-{{ version }}.tar.xz
   url: http://ftp.gnu.org/gnu/gdb/gdb-{{ version }}.tar.xz
-  sha256: c3a441a29c7c89720b734e5a9c6289c0a06be7e0c76ef538f7bbcef389347c39
+  sha256: 699e0ec832fdd2f21c8266171ea5bf44024bd05164fdf064e4d10cc4cf0d1737
 
 build:
   detect_binary_files_with_prefix: True
@@ -26,13 +26,21 @@ requirements:
     - {{ compiler('cxx') }}
     - binutils-{{ environ.get('TOOLCHAIN_ARCH') }}-elf
     - gcc-{{ environ.get('TOOLCHAIN_ARCH') }}-elf-nostdc
+    - pkg-config
+    - python
     - texinfo
+  host:
+    - expat
+    - mpfr >=2.4.2
+    - ncurses
+    - python
     - zlib
   run:
     - binutils-{{ environ.get('TOOLCHAIN_ARCH') }}-elf
   {% for package in resolved_packages('host') %}
     - {{ package }}
   {% endfor %}
+    - {{ pin_compatible('python', min_pin='x.x', max_pin='x.x') }}
 
 test:
   commands:
