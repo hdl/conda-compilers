@@ -13,6 +13,11 @@ jobs:
    - stage: "Libraries"
      env:
      - PACKAGE=lib/isl
+   - stage: "Libraries"
+     os: osx
+     osx_image: xcode8.3
+     env:
+     - PACKAGE=lib/isl
 
    # or1k toolchain
    - stage: "Binutils"
@@ -30,6 +35,12 @@ jobs:
    - stage: "GDB"
      env:
      - PACKAGE=gdb          TOOLCHAIN_ARCH=or1k
+   # OSX
+   - stage: "Binutils"
+     os: osx
+     osx_image: xcode8.3
+     env:
+     - PACKAGE=binutils     TOOLCHAIN_ARCH=or1k
 
    # rv32 toolchain
    - stage: "Binutils"
@@ -47,6 +58,12 @@ jobs:
    - stage: "GDB"
      env:
      - PACKAGE=gdb          TOOLCHAIN_ARCH=riscv32
+   # OSX
+   - stage: "Binutils"
+     os: osx
+     osx_image: xcode8.3
+     env:
+     - PACKAGE=binutils     TOOLCHAIN_ARCH=riscv32
 
    # rv64 toolchain
    - stage: "Binutils"
@@ -64,6 +81,12 @@ jobs:
    - stage: "GDB"
      env:
      - PACKAGE=gdb          TOOLCHAIN_ARCH=riscv64
+   # OSX
+   - stage: "Binutils"
+     os: osx
+     osx_image: xcode8.3
+     env:
+     - PACKAGE=binutils     TOOLCHAIN_ARCH=riscv64
 
    # lm32 toolchain - no linux
    - stage: "Binutils"
@@ -78,6 +101,12 @@ jobs:
    - stage: "GDB"
      env:
      - PACKAGE=gdb          TOOLCHAIN_ARCH=lm32
+   # OSX
+   - stage: "Binutils"
+     os: osx
+     osx_image: xcode8.3
+     env:
+     - PACKAGE=binutils     TOOLCHAIN_ARCH=lm32
 
    # ppc64le toolchain
    - stage: "Binutils"
@@ -95,6 +124,12 @@ jobs:
 #   - stage: "GDB"
 #     env:
 #     - PACKAGE=gdb          TOOLCHAIN_ARCH=ppc64le
+   # OSX
+   - stage: "Binutils"
+     os: osx
+     osx_image: xcode8.3
+     env:
+     - PACKAGE=binutils     TOOLCHAIN_ARCH=ppc64le
 
    # sh2 toolchain
    - stage: "Binutils"
@@ -112,6 +147,12 @@ jobs:
    - stage: "GDB"
      env:
      - PACKAGE=gdb          TOOLCHAIN_ARCH=sh
+   # OSX
+   - stage: "Binutils"
+     os: osx
+     osx_image: xcode8.3
+     env:
+     - PACKAGE=binutils     TOOLCHAIN_ARCH=sh
 
    # Full Linux musl toolchain using musl-cross-make
    - stage: "Toolchain - Linux MUSL"
