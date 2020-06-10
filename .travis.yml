@@ -6,6 +6,16 @@ addons:
     packages:
     - realpath
 
+stages:
+  - "Libraries"
+  - "Binutils"
+  - "GCC - nostdc"
+  - "GCC - newlib"
+  - "GCC - Linux (musl)"
+  - "GDB"
+  - "Toolchain - linux musl"
+  - "Other tools"
+
 jobs:
   fast_finish: true
   include:
