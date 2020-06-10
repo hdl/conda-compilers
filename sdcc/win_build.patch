@@ -1,0 +1,27 @@
+diff --git a/work/configure b/work1/configure
+index 43ccb6f..9e8d6ef 100755
+--- a/configure
++++ b/configure
+
+@@ -10417,15 +10417,15 @@ $as_echo "$as_me: WARNING: no configuration information is in $ac_dir" >&2;}
+       case $cache_file in
+       [\\/]* | ?:[\\/]* ) ac_sub_cache_file=$cache_file ;;
+       *) # Relative name.
+-   ac_sub_cache_file=$ac_top_build_prefix$cache_file ;;
++    ac_sub_cache_file=$ac_top_build_prefix$cache_file ;;
+       esac
+
+-      { $as_echo "$as_me:${as_lineno-$LINENO}: running $SHELL $ac_sub_configure $ac_sub_configure_args --cache-file=$ac_sub_cache_file --srcdir=$ac_srcdir" >&5
+-$as_echo "$as_me: running $SHELL $ac_sub_configure $ac_sub_configure_args --cache-file=$ac_sub_cache_file --srcdir=$ac_srcdir" >&6;}
++      { $as_echo "$as_me:${as_lineno-$LINENO}: running $SHELL $ac_sub_configure --build=x86_64-w64-mingw32 $ac_sub_configure_args --cache-file=$ac_sub_cache_file --srcdir=$ac_srcdir" >&5
++$as_echo "$as_me: running $SHELL $ac_sub_configure --build=x86_64-w64-mingw32 $ac_sub_configure_args --cache-file=$ac_sub_cache_file --srcdir=$ac_srcdir" >&6;}
+       # The eval makes quoting arguments work.
+-      eval "\$SHELL \"\$ac_sub_configure\" $ac_sub_configure_args \
+-      --cache-file=\"\$ac_sub_cache_file\" --srcdir=\"\$ac_srcdir\"" ||
+-   as_fn_error $? "$ac_sub_configure failed for $ac_dir" "$LINENO" 5
++      eval "\$SHELL \"\$ac_sub_configure\" --build=x86_64-w64-mingw32 $ac_sub_configure_args \
++       --cache-file=\"\$ac_sub_cache_file\" --srcdir=\"\$ac_srcdir\"" ||
++    as_fn_error $? "$ac_sub_configure failed for $ac_dir" "$LINENO" 5
+     fi
+
+     cd "$ac_popdir"

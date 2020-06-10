@@ -131,12 +131,28 @@ jobs:
 
    # Other tools
    - stage: "Other Tools"
+     os: linux
+     dist: xenial
+     env:
+     - PACKAGE=sdcc
+   - stage: "Other Tools"
+     os: osx
+     osx_image: xcode8.3
+     addons:
+       homebrew:
+         packages:
+           - x86_64-elf-gcc
+     env:
+     - PACKAGE=sdcc
+   - stage: "Other Tools"
+     os: windows
      env:
      - PACKAGE=sdcc
 
 before_install:
  - source $TRAVIS_BUILD_DIR/.travis/common.sh
  - bash $TRAVIS_BUILD_DIR/.travis/fixup-git.sh
+ - bash $TRAVIS_BUILD_DIR/.travis/download_sdk.sh
  - source $TRAVIS_BUILD_DIR/.travis/common.sh
 
 install:

@@ -1,11 +1,16 @@
+# cmake 1.15 required for boost 1.71
+{% set boost_version = ">=1.67,<1.68.0a0" %}
+
 package:
   name: sdcc
-  version: 3.6.0
+  version: 4.0.0
 
 source:
-  fn: sdcc-src-3.6.0.tar.bz2
-  url: http://sourceforge.net/projects/sdcc/files/sdcc/3.6.0/sdcc-src-3.6.0.tar.bz2/download
-  sha256: e85dceb11e01ffefb545ec389da91265130c91953589392dddd2e5ec0b7ca374
+  fn: sdcc-src-4.0.0.tar.bz2
+  url: http://sourceforge.net/projects/sdcc/files/sdcc/4.0.0/sdcc-src-4.0.0.tar.bz2/download
+  sha256: 489180806fc20a3911ba4cf5ccaf1875b68910d7aed3f401bbd0695b0bef4e10
+  patches:
+    - win_build.patch       [win]
 
 build:
   # number: 201803050325
@@ -18,12 +23,19 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
+    - {{ compiler('c') }}     [not osx]
+    - {{ compiler('cxx') }}   [not osx]
+    - m2w64-toolchain         [win]
+    - m2-bison                [win]
+    - m2-patch                [win]
+    - m2-flex                 [win]
+    - m2-make                 [win]
+    - m2-texinfo              [win]
+    - m2-base                 [win]
   host:
-    - ncurses
+    - ncurses                 [not win]
+    - texinfo                 [not win]
     - boost
-    - texinfo
   run:
     - libboost
   {% for package in resolved_packages('host') %}
@@ -32,6 +44,9 @@ requirements:
   {% for package in resolved_packages('build') %}
     - {{ package }}
   {% endfor %}
+  test:
+    commands:
+      - sdcc -v
 
 about:
   home: http://sdcc.sourceforge.net/

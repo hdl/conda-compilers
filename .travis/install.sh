@@ -11,9 +11,9 @@ mkdir -p $BASE_PATH
 hash -r
 conda config --set always_yes yes --set changeps1 no
 conda install pexpect
-conda config --add channels timvideos
+conda config --add channels litex-hub
 for CHANNEL in $CONDA_CHANNELS; do
-	conda config --add channels $CHANNEL
+    conda config --add channels $CHANNEL
 done
 conda config --add channels $(echo $TRAVIS_REPO_SLUG | sed -e's@/.*$@@')
 #conda clean -s --dry-run
@@ -54,10 +54,10 @@ travis_wait conda build --source $CONDA_BUILD_ARGS || true
 end_section "conda.download"
 
 if [ -e $PACKAGE/prescript.$TOOLCHAIN_ARCH.sh ]; then
-	start_section "conda.prescript" "${GREEN}Prescript..${NC}"
-	(
-		cd $TRAVIS_BUILD_DIR
-		$PACKAGE/prescript.$TOOLCHAIN_ARCH.sh
-	)
-	end_section "conda.prescript"
+    start_section "conda.prescript" "${GREEN}Prescript..${NC}"
+    (
+        cd $TRAVIS_BUILD_DIR
+        $PACKAGE/prescript.$TOOLCHAIN_ARCH.sh
+    )
+    end_section "conda.prescript"
 fi
