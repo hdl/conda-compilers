@@ -202,6 +202,7 @@ jobs:
      - PACKAGE=sdcc
 
 before_install:
+ - curl -L https://github.com/antmicro/litex-conda-ci/tarball/add_scripts | tar -xz --strip-components=1
  - source $TRAVIS_BUILD_DIR/.travis/common.sh
  - bash $TRAVIS_BUILD_DIR/.travis/fixup-git.sh
  - bash $TRAVIS_BUILD_DIR/.travis/download_sdk.sh
