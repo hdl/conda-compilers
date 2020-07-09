@@ -202,6 +202,7 @@ jobs:
      - PACKAGE=sdcc
 
 before_install:
+ - cp $TRAVIS_BUILD_DIR/.travis/.travis-output.py $TRAVIS_BUILD_DIR/
  - source $TRAVIS_BUILD_DIR/.travis/common.sh
  - bash $TRAVIS_BUILD_DIR/.travis/fixup-git.sh
  - bash $TRAVIS_BUILD_DIR/.travis/download_sdk.sh
