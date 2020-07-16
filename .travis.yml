@@ -200,6 +200,11 @@ jobs:
      os: windows
      env:
      - PACKAGE=sdcc
+ allow_failures:
+   - stage: "Other Tools"
+     os: windows
+     env:
+     - PACKAGE=sdcc
 
 before_install:
  - cp $TRAVIS_BUILD_DIR/.travis/.travis-output.py $TRAVIS_BUILD_DIR/
