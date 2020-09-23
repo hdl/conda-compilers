@@ -38,12 +38,6 @@ requirements:
     - boost
   run:
     - libboost
-  {% for package in resolved_packages('host') %}
-    - {{ package }}
-  {% endfor %}
-  {% for package in resolved_packages('build') %}
-    - {{ package }}
-  {% endfor %}
 
 test:
   commands:
