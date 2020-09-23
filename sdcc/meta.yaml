@@ -38,15 +38,10 @@ requirements:
     - boost
   run:
     - libboost
-  {% for package in resolved_packages('host') %}
-    - {{ package }}
-  {% endfor %}
-  {% for package in resolved_packages('build') %}
-    - {{ package }}
-  {% endfor %}
-  test:
-    commands:
-      - sdcc -v
+
+test:
+  commands:
+    - sdcc -v
 
 about:
   home: http://sdcc.sourceforge.net/
