@@ -10,7 +10,7 @@ index 43ccb6f..9e8d6ef 100755
 -   ac_sub_cache_file=$ac_top_build_prefix$cache_file ;;
 +    ac_sub_cache_file=$ac_top_build_prefix$cache_file ;;
        esac
-
+ 
 -      { $as_echo "$as_me:${as_lineno-$LINENO}: running $SHELL $ac_sub_configure $ac_sub_configure_args --cache-file=$ac_sub_cache_file --srcdir=$ac_srcdir" >&5
 -$as_echo "$as_me: running $SHELL $ac_sub_configure $ac_sub_configure_args --cache-file=$ac_sub_cache_file --srcdir=$ac_srcdir" >&6;}
 +      { $as_echo "$as_me:${as_lineno-$LINENO}: running $SHELL $ac_sub_configure --build=x86_64-w64-mingw32 $ac_sub_configure_args --cache-file=$ac_sub_cache_file --srcdir=$ac_srcdir" >&5
@@ -23,5 +23,5 @@ index 43ccb6f..9e8d6ef 100755
 +       --cache-file=\"\$ac_sub_cache_file\" --srcdir=\"\$ac_srcdir\"" ||
 +    as_fn_error $? "$ac_sub_configure failed for $ac_dir" "$LINENO" 5
      fi
-
+ 
      cd "$ac_popdir"
