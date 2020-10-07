@@ -196,7 +196,7 @@ jobs:
      env:
      - PACKAGE=sdcc
   allow_failures:
-   - stage: "Other Tools"
+   - stage: "No dependencies"
      os: windows
      env:
      - PACKAGE=sdcc
