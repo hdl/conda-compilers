@@ -43,7 +43,7 @@ jobs:
    - stage: "Has first level dependencies"
      env:
      - PACKAGE=gcc/linux-musl TOOLCHAIN_ARCH=or1k
-   - stage: "Has first level dependencies"
+   - stage: "Has second level dependencies"
      env:
      - PACKAGE=gdb          TOOLCHAIN_ARCH=or1k
    - stage: "No dependencies"
@@ -65,7 +65,7 @@ jobs:
    - stage: "Has first level dependencies"
      env:
      - PACKAGE=gcc/linux-musl TOOLCHAIN_ARCH=riscv32
-   - stage: "Has first level dependencies"
+   - stage: "Has second level dependencies"
      env:
      - PACKAGE=gdb          TOOLCHAIN_ARCH=riscv32
    - stage: "No dependencies"
@@ -87,7 +87,7 @@ jobs:
    - stage: "Has first level dependencies"
      env:
      - PACKAGE=gcc/linux-musl TOOLCHAIN_ARCH=riscv64
-   - stage: "Has first level dependencies"
+   - stage: "Has second level dependencies"
      env:
      - PACKAGE=gdb          TOOLCHAIN_ARCH=riscv64
    - stage: "No dependencies"
@@ -106,7 +106,7 @@ jobs:
    - stage: "Has second level dependencies"
      env:
      - PACKAGE=gcc/newlib   TOOLCHAIN_ARCH=lm32
-   - stage: "Has first level dependencies"
+   - stage: "Has second level dependencies"
      env:
      - PACKAGE=gdb          TOOLCHAIN_ARCH=lm32
    - stage: "No dependencies"
@@ -128,7 +128,7 @@ jobs:
    - stage: "Has first level dependencies"
      env:
      - PACKAGE=gcc/linux-musl TOOLCHAIN_ARCH=ppc64le
-#   - stage: "Has first level dependencies"
+#   - stage: "Has second level dependencies"
 #     env:
 #     - PACKAGE=gdb          TOOLCHAIN_ARCH=ppc64le
    - stage: "No dependencies"
@@ -150,7 +150,7 @@ jobs:
    - stage: "Has first level dependencies"
      env:
      - PACKAGE=gcc/linux-musl TOOLCHAIN_ARCH=sh
-   - stage: "Has first level dependencies"
+   - stage: "Has second level dependencies"
      env:
      - PACKAGE=gdb          TOOLCHAIN_ARCH=sh
    - stage: "No dependencies"
