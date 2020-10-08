@@ -7,187 +7,182 @@ addons:
     - realpath
 
 stages:
-  - "Libraries"
-  - "Binutils"
-  - "GCC - nostdc"
-  - "GCC - newlib"
-  - "GCC - Linux (musl)"
-  - "GDB"
-  - "Toolchain - linux musl"
-  - "Other tools"
+  - name: "No dependencies" # Doesn't depend on anything apart from upstream packages
+    if: type != cron
+  - name: "Has first level dependencies" # Depends on a package in the "no dependencies" group
+    if: type != cron
+  - name: "Has second level dependencies" # Depends on a package in the "Has first level dependencies" group
+    if: type != cron
+  - name: "Main label upload" # Puts Anaconda packages to the main label
+    if: type = push AND branch = master
+  - name: "Cleanup" # Job for removing old Anaconda labels
+    if: type = cron
 
 jobs:
   fast_finish: true
   include:
-   # Libraries
-   - stage: "Libraries"
+   - stage: "No dependencies"
      env:
      - PACKAGE=lib/isl
-   - stage: "Libraries"
+   - stage: "No dependencies"
      os: osx
      osx_image: xcode8.3
      env:
      - PACKAGE=lib/isl
 
    # or1k toolchain
-   - stage: "Binutils"
+   - stage: "No dependencies"
      env:
      - PACKAGE=binutils     TOOLCHAIN_ARCH=or1k
-   - stage: "GCC - nostdc"
+   - stage: "Has first level dependencies"
      env:
      - PACKAGE=gcc/nostdc   TOOLCHAIN_ARCH=or1k
-   - stage: "GCC - newlib"
+   - stage: "Has second level dependencies"
      env:
      - PACKAGE=gcc/newlib   TOOLCHAIN_ARCH=or1k
-   - stage: "GCC - Linux (musl)"
+   - stage: "Has first level dependencies"
      env:
      - PACKAGE=gcc/linux-musl TOOLCHAIN_ARCH=or1k
-   - stage: "GDB"
+   - stage: "Has second level dependencies"
      env:
      - PACKAGE=gdb          TOOLCHAIN_ARCH=or1k
-   # OSX
-   - stage: "Binutils"
+   - stage: "No dependencies"
      os: osx
      osx_image: xcode8.3
      env:
      - PACKAGE=binutils     TOOLCHAIN_ARCH=or1k
 
    # rv32 toolchain
-   - stage: "Binutils"
+   - stage: "No dependencies"
      env:
      - PACKAGE=binutils     TOOLCHAIN_ARCH=riscv32
-   - stage: "GCC - nostdc"
+   - stage: "Has first level dependencies"
      env:
      - PACKAGE=gcc/nostdc   TOOLCHAIN_ARCH=riscv32
-   - stage: "GCC - newlib"
+   - stage: "Has second level dependencies"
      env:
      - PACKAGE=gcc/newlib   TOOLCHAIN_ARCH=riscv32
-   - stage: "GCC - Linux (musl)"
+   - stage: "Has first level dependencies"
      env:
      - PACKAGE=gcc/linux-musl TOOLCHAIN_ARCH=riscv32
-   - stage: "GDB"
+   - stage: "Has second level dependencies"
      env:
      - PACKAGE=gdb          TOOLCHAIN_ARCH=riscv32
-   # OSX
-   - stage: "Binutils"
+   - stage: "No dependencies"
      os: osx
      osx_image: xcode8.3
      env:
      - PACKAGE=binutils     TOOLCHAIN_ARCH=riscv32
 
    # rv64 toolchain
-   - stage: "Binutils"
+   - stage: "No dependencies"
      env:
      - PACKAGE=binutils     TOOLCHAIN_ARCH=riscv64
-   - stage: "GCC - nostdc"
+   - stage: "Has first level dependencies"
      env:
      - PACKAGE=gcc/nostdc   TOOLCHAIN_ARCH=riscv64
-   - stage: "GCC - newlib"
+   - stage: "Has second level dependencies"
      env:
      - PACKAGE=gcc/newlib   TOOLCHAIN_ARCH=riscv64
-   - stage: "GCC - Linux (musl)"
+   - stage: "Has first level dependencies"
      env:
      - PACKAGE=gcc/linux-musl TOOLCHAIN_ARCH=riscv64
-   - stage: "GDB"
+   - stage: "Has second level dependencies"
      env:
      - PACKAGE=gdb          TOOLCHAIN_ARCH=riscv64
-   # OSX
-   - stage: "Binutils"
+   - stage: "No dependencies"
      os: osx
      osx_image: xcode8.3
      env:
      - PACKAGE=binutils     TOOLCHAIN_ARCH=riscv64
 
    # lm32 toolchain - no linux
-   - stage: "Binutils"
+   - stage: "No dependencies"
      env:
      - PACKAGE=binutils     TOOLCHAIN_ARCH=lm32
-   - stage: "GCC - nostdc"
+   - stage: "Has first level dependencies"
      env:
      - PACKAGE=gcc/nostdc   TOOLCHAIN_ARCH=lm32
-   - stage: "GCC - newlib"
+   - stage: "Has second level dependencies"
      env:
      - PACKAGE=gcc/newlib   TOOLCHAIN_ARCH=lm32
-   - stage: "GDB"
+   - stage: "Has second level dependencies"
      env:
      - PACKAGE=gdb          TOOLCHAIN_ARCH=lm32
-   # OSX
-   - stage: "Binutils"
+   - stage: "No dependencies"
      os: osx
      osx_image: xcode8.3
      env:
      - PACKAGE=binutils     TOOLCHAIN_ARCH=lm32
 
    # ppc64le toolchain
-   - stage: "Binutils"
+   - stage: "No dependencies"
      env:
      - PACKAGE=binutils     TOOLCHAIN_ARCH=ppc64le
-#   - stage: "GCC - nostdc"
+#   - stage: "Has first level dependencies"
 #     env:
 #     - PACKAGE=gcc/nostdc   TOOLCHAIN_ARCH=ppc64le
-#   - stage: "GCC - newlib"
+#   - stage: "Has second level dependencies"
 #     env:
 #     - PACKAGE=gcc/newlib   TOOLCHAIN_ARCH=ppc64le
-   - stage: "GCC - Linux (musl)"
+   - stage: "Has first level dependencies"
      env:
      - PACKAGE=gcc/linux-musl TOOLCHAIN_ARCH=ppc64le
-#   - stage: "GDB"
+#   - stage: "Has second level dependencies"
 #     env:
 #     - PACKAGE=gdb          TOOLCHAIN_ARCH=ppc64le
-   # OSX
-   - stage: "Binutils"
+   - stage: "No dependencies"
      os: osx
      osx_image: xcode8.3
      env:
      - PACKAGE=binutils     TOOLCHAIN_ARCH=ppc64le
 
    # sh2 toolchain
-   - stage: "Binutils"
+   - stage: "No dependencies"
      env:
      - PACKAGE=binutils     TOOLCHAIN_ARCH=sh
-   - stage: "GCC - nostdc"
+   - stage: "Has first level dependencies"
      env:
      - PACKAGE=gcc/nostdc   TOOLCHAIN_ARCH=sh
-   - stage: "GCC - newlib"
+   - stage: "Has second level dependencies"
      env:
      - PACKAGE=gcc/newlib   TOOLCHAIN_ARCH=sh
-   - stage: "GCC - Linux (musl)"
+   - stage: "Has first level dependencies"
      env:
      - PACKAGE=gcc/linux-musl TOOLCHAIN_ARCH=sh
-   - stage: "GDB"
+   - stage: "Has second level dependencies"
      env:
      - PACKAGE=gdb          TOOLCHAIN_ARCH=sh
-   # OSX
-   - stage: "Binutils"
+   - stage: "No dependencies"
      os: osx
      osx_image: xcode8.3
      env:
      - PACKAGE=binutils     TOOLCHAIN_ARCH=sh
 
    # Full Linux musl toolchain using musl-cross-make
-   - stage: "Toolchain - Linux MUSL"
+   - stage: "Has first level dependencies"
      env:
      - PACKAGE=toolchain/linux-musl TOOLCHAIN_ARCH=or1k
-   - stage: "Toolchain - Linux MUSL"
+   - stage: "Has first level dependencies"
      env:
      - PACKAGE=toolchain/linux-musl TOOLCHAIN_ARCH=riscv32
-   - stage: "Toolchain - Linux MUSL"
+   - stage: "Has first level dependencies"
      env:
      - PACKAGE=toolchain/linux-musl TOOLCHAIN_ARCH=riscv64
-#   - stage: "Toolchain - Linux MUSL"
+#   - stage: "Has first level dependencies"
 #     env:
 #     - PACKAGE=toolchain/linux-musl TOOLCHAIN_ARCH=ppc64le
-   - stage: "Toolchain - Linux MUSL"
+   - stage: "Has first level dependencies"
      env:
      - PACKAGE=toolchain/linux-musl TOOLCHAIN_ARCH=sh
 
    # Other tools
-   - stage: "Other Tools"
+   - stage: "No dependencies"
      os: linux
      dist: xenial
      env:
      - PACKAGE=sdcc
-   - stage: "Other Tools"
+   - stage: "No dependencies"
      os: osx
      osx_image: xcode8.3
      addons:
@@ -196,15 +191,29 @@ jobs:
            - x86_64-elf-gcc
      env:
      - PACKAGE=sdcc
-   - stage: "Other Tools"
+   - stage: "No dependencies"
      os: windows
      env:
      - PACKAGE=sdcc
   allow_failures:
-   - stage: "Other Tools"
+   - stage: "No dependencies"
      os: windows
      env:
      - PACKAGE=sdcc
+
+  # Move packages from the current label to main
+   - stage: "Main label upload"
+     os: linux
+     dist: xenial
+     script:
+       - bash $TRAVIS_BUILD_DIR/.travis/master-package.sh
+
+  # Remove old labels
+   - stage: "Cleanup"
+     os: linux
+     dist: xenial
+     script:
+       - bash $TRAVIS_BUILD_DIR/.travis/cleanup-anaconda.sh
 
 before_install:
  - cp $TRAVIS_BUILD_DIR/.travis/.travis-output.py $TRAVIS_BUILD_DIR/
