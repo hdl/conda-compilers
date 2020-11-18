@@ -37,9 +37,10 @@ requirements:
     - zlib
   run:
     - binutils-{{ environ.get('TOOLCHAIN_ARCH') }}-elf
-  {% for package in resolved_packages('host') %}
-    - {{ package }}
-  {% endfor %}
+    - expat
+    - mpfr >=2.4.2
+    - ncurses
+    - zlib
     - {{ pin_compatible('python', min_pin='x.x', max_pin='x.x') }}
 
 test:
