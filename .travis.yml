@@ -195,11 +195,6 @@ jobs:
      os: windows
      env:
      - PACKAGE=sdcc
-  allow_failures:
-   - stage: "No dependencies"
-     os: windows
-     env:
-     - PACKAGE=sdcc
 
   # Move packages from the current label to main
    - stage: "Main label upload"
@@ -214,6 +209,12 @@ jobs:
      dist: xenial
      script:
        - bash $TRAVIS_BUILD_DIR/.travis/cleanup-anaconda.sh
+
+  allow_failures:
+   - stage: "No dependencies"
+     os: windows
+     env:
+     - PACKAGE=sdcc
 
 before_install:
  - cp $TRAVIS_BUILD_DIR/.travis/.travis-output.py $TRAVIS_BUILD_DIR/
