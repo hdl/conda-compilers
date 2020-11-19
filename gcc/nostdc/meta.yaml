@@ -34,10 +34,14 @@ requirements:
     # Arch specific
     - binutils-{{ environ.get('TOOLCHAIN_ARCH') }}-elf
   run:
+    # These are taken from the output of the configure scripts
+    - gmp >=4.3.2
+    - mpfr >=2.4.2
+    - mpc >=0.8.1
+    - isl >=0.15.0
+    - cloog
+    # Arch specific
     - binutils-{{ environ.get('TOOLCHAIN_ARCH') }}-elf
-  {% for package in resolved_packages('host') %}
-    - {{ package }}
-  {% endfor %}
 
 about:
   home: https://gcc.gnu.org/
