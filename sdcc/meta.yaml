@@ -9,8 +9,6 @@ source:
   fn: sdcc-src-4.0.0.tar.bz2
   url: http://sourceforge.net/projects/sdcc/files/sdcc/4.0.0/sdcc-src-4.0.0.tar.bz2/download
   sha256: 489180806fc20a3911ba4cf5ccaf1875b68910d7aed3f401bbd0695b0bef4e10
-  patches:
-    - win_build.patch       [win]
 
 build:
   # number: 201803050325
