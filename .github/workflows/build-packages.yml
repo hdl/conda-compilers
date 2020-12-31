@@ -54,41 +54,15 @@ jobs:
     defaults:
       run:
         shell: bash
+    env:
+      PACKAGE: ${{ matrix.package }}
+      OS_NAME: ${{ matrix.os-name }}
+      TOOLCHAIN_ARCH: ${{ matrix.toolchain-arch }}
     steps:
     - uses: actions/checkout@v2
       with:
         submodules: 'true'
-    - name: 'windows: add msys2 to PATH'
-      if: matrix.os-name == 'windows'
-      run: echo "C:\msys64" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-      shell: powershell
     - name: 'macos: install dependencies'
       if: matrix.os-name == 'osx'
       run: brew install coreutils boost
-    - name: build
-      if: matrix.skip != 'true'
-      env:
-        PACKAGE: ${{ matrix.package }}
-        OS_NAME: ${{ matrix.os-name }}
-        TOOLCHAIN_ARCH: ${{ matrix.toolchain-arch }}
-      run: |
-        export PATH="$PATH:/c/ProgramData/Chocolatey/bin/"
-        export PATH="$PATH:/c/Program Files/Git/usr/bin/"
-        source .github/scripts/common.sh
-        bash .github/scripts/fixup-git.sh
-        bash .github/scripts/download_sdk.sh
-        source .github/scripts/common.sh
-        bash .github/scripts/install.sh
-        bash .github/scripts/script.sh
-    - name: on_success
-      env:
-        PACKAGE: ${{ matrix.package }}
-      if: success() && matrix.skip != 'true'
-      run: |
-        source .github/scripts/after_success.sh
-    - name: on_failure
-      env:
-        PACKAGE: ${{ matrix.package }}
-      if: failure() && matrix.skip != 'true'
-      run: |
-        source .github/scripts/after_failure.sh
+    - uses: antmicro/litex-conda-ci@move-to-ghactions
