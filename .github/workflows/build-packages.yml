@@ -66,3 +66,18 @@ jobs:
       if: matrix.os-name == 'osx'
       run: brew install coreutils boost
     - uses: antmicro/litex-conda-ci@move-to-ghactions
+  master-package:
+    runs-on: "ubuntu-16.04"
+    env:
+      OS_NAME: "linux"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: actions/setup-python@v1
+      - uses: BSFishy/pip-action@v1
+        with:
+          packages: urllib3
+      - run: |
+          bash .github/scripts/install.sh
+          python .github/scripts/wait-for-statuses.py
