@@ -457,6 +457,7 @@ jobs:
     env:
       PACKAGE: "sdcc"
       OS_NAME: "windows"
+      SKIP: "true"
     steps:
       - uses: actions/checkout@v2
         with:
