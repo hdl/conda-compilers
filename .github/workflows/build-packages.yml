@@ -4,68 +4,464 @@ env:
   ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
   ANACONDA_USER: ${{ secrets.ANACONDA_USER }}
   NUM_OF_JOBS: 40
+defaults:
+  run:
+    shell: bash
 jobs:
-  packages:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - {package: "lib/isl", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "lib/isl", os: "macos-latest", os-name: "osx"}
-          - {package: "binutils", toolchain-arch: "or1k", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "gcc/nostdc", toolchain-arch: "or1k", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "gcc/newlib", toolchain-arch: "or1k", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "gcc/linux-musl", toolchain-arch: "or1k", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "gdb", toolchain-arch: "or1k", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "binutils", toolchain-arch: "riscv32", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "gcc/nostdc", toolchain-arch: "riscv32", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "gcc/newlib", toolchain-arch: "riscv32", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "gcc/linux-musl", toolchain-arch: "riscv32", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "gdb", toolchain-arch: "riscv32", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "binutils", toolchain-arch: "riscv32", os: "macos-latest", os-name: "osx"}
-          - {package: "binutils", toolchain-arch: "riscv64", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "gcc/nostdc", toolchain-arch: "riscv64", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "gcc/newlib", toolchain-arch: "riscv64", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "gcc/linux-musl", toolchain-arch: "riscv64", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "gdb", toolchain-arch: "riscv64", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "binutils", toolchain-arch: "riscv64", os: "macos-latest", os-name: "osx"}
-          - {package: "binutils", toolchain-arch: "lm32", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "gcc/nostdc", toolchain-arch: "lm32", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "gcc/newlib", toolchain-arch: "lm32", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "gdb", toolchain-arch: "lm32", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "binutils", toolchain-arch: "lm32", os: "macos-latest", os-name: "osx"}
-          - {package: "binutils", toolchain-arch: "ppc64le", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "gcc/linux-musl", toolchain-arch: "ppc64le", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "binutils", toolchain-arch: "ppc64le", os: "macos-latest", os-name: "osx"}
-          - {package: "binutils", toolchain-arch: "sh", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "gcc/nostdc", toolchain-arch: "sh", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "gcc/newlib", toolchain-arch: "sh", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "gcc/linux-musl", toolchain-arch: "sh", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "gdb", toolchain-arch: "sh", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "binutils", toolchain-arch: "ppc64le", os: "macos-latest", os-name: "osx"}
-          - {package: "toolchain/linux-musl", toolchain-arch: "or1k", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "toolchain/linux-musl", toolchain-arch: "riscv32", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "toolchain/linux-musl", toolchain-arch: "riscv64", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "toolchain/linux-musl", toolchain-arch: "sh", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "sdcc", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "sdcc", os: "macos-latest", os-name: "osx"}
-          - {package: "sdcc", os: "windows-latest", os-name: "windows", skip: "true"}
-    defaults:
-      run:
-        shell: bash
+  libisl-linux:
+    runs-on: "ubuntu-16.04"
     env:
-      PACKAGE: ${{ matrix.package }}
-      OS_NAME: ${{ matrix.os-name }}
-      TOOLCHAIN_ARCH: ${{ matrix.toolchain-arch }}
+      PACKAGE: "lib/isl"
+      OS_NAME: "linux"
     steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: 'true'
-    - name: 'macos: install dependencies'
-      if: matrix.os-name == 'osx'
-      run: brew install coreutils boost
-    - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  binutils-or1k-linux:
+    runs-on: "ubuntu-16.04"
+    env:
+      PACKAGE: "binutils"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "or1k"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  gcc-nostdc-or1k-linux:
+    runs-on: "ubuntu-16.04"
+    needs: ["libisl-linux", "binutils-or1k-linux"]
+    env:
+      PACKAGE: "gcc/nostdc"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "or1k"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  gcc-newlib-or1k-linux:
+    runs-on: "ubuntu-16.04"
+    needs: ["libisl-linux", "binutils-or1k-linux", "gcc-nostdc-or1k-linux"]
+    env:
+      PACKAGE: "gcc/newlib"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "or1k"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  gcc-musl-or1k-linux:
+    runs-on: "ubuntu-16.04"
+    needs: "libisl-linux"
+    env:
+      PACKAGE: "gcc/linux-musl"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "or1k"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  gdb-or1k-linux:
+    runs-on: "ubuntu-16.04"
+    needs: ["libisl-linux", "binutils-or1k-linux", "gcc-nostdc-or1k-linux"]
+    env:
+      PACKAGE: "gdb"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "or1k"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  binutils-riscv32-linux:
+    runs-on: "ubuntu-16.04"
+    env:
+      PACKAGE: "binutils"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "riscv32"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  gcc-nostdc-riscv32-linux:
+    runs-on: "ubuntu-16.04"
+    needs: ["libisl-linux", "binutils-riscv32-linux"]
+    env:
+      PACKAGE: "gcc/nostdc"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "riscv32"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  gcc-newlib-riscv32-linux:
+    runs-on: "ubuntu-16.04"
+    needs: ["libisl-linux", "binutils-riscv32-linux", "gcc-nostdc-riscv32-linux"]
+    env:
+      PACKAGE: "gcc/newlib"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "riscv32"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  gcc-musl-riscv32-linux:
+    runs-on: "ubuntu-16.04"
+    needs: "libisl-linux"
+    env:
+      PACKAGE: "gcc/linux-musl"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "riscv32"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  gdb-riscv32-linux:
+    runs-on: "ubuntu-16.04"
+    needs: ["libisl-linux", "binutils-riscv32-linux", "gcc-nostdc-riscv32-linux"]
+    env:
+      PACKAGE: "gdb"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "riscv32"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  binutils-riscv64-linux:
+    runs-on: "ubuntu-16.04"
+    env:
+      PACKAGE: "binutils"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "riscv64"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  gcc-nostdc-riscv64-linux:
+    runs-on: "ubuntu-16.04"
+    needs: ["libisl-linux", "binutils-riscv64-linux"]
+    env:
+      PACKAGE: "gcc/nostdc"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "riscv64"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  gcc-newlib-riscv64-linux:
+    runs-on: "ubuntu-16.04"
+    needs: ["libisl-linux", "binutils-riscv64-linux", "gcc-nostdc-riscv64-linux"]
+    env:
+      PACKAGE: "gcc/newlib"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "riscv64"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  gcc-musl-riscv64-linux:
+    runs-on: "ubuntu-16.04"
+    needs: "libisl-linux"
+    env:
+      PACKAGE: "gcc/linux-musl"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "riscv64"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  gdb-riscv64-linux:
+    runs-on: "ubuntu-16.04"
+    needs: ["libisl-linux", "binutils-riscv64-linux", "gcc-nostdc-riscv64-linux"]
+    env:
+      PACKAGE: "gdb"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "riscv64"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  binutils-lm32-linux:
+    runs-on: "ubuntu-16.04"
+    env:
+      PACKAGE: "binutils"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "lm32"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  gcc-nostdc-lm32-linux:
+    runs-on: "ubuntu-16.04"
+    needs: ["libisl-linux", "binutils-lm32-linux"]
+    env:
+      PACKAGE: "gcc/nostdc"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "lm32"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  gcc-newlib-lm32-linux:
+    runs-on: "ubuntu-16.04"
+    needs: ["libisl-linux", "binutils-lm32-linux", "gcc-nostdc-lm32-linux"]
+    env:
+      PACKAGE: "gcc/newlib"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "lm32"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  gdb-lm32-linux:
+    runs-on: "ubuntu-16.04"
+    needs: ["libisl-linux", "binutils-lm32-linux", "gcc-nostdc-lm32-linux"]
+    env:
+      PACKAGE: "gdb"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "lm32"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  binutils-ppc64le-linux:
+    runs-on: "ubuntu-16.04"
+    env:
+      PACKAGE: "binutils"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "ppc64le"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  gcc-musl-ppc64le-linux:
+    runs-on: "ubuntu-16.04"
+    needs: "libisl-linux"
+    env:
+      PACKAGE: "gcc/linux-musl"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "ppc64le"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  binutils-sh-linux:
+    runs-on: "ubuntu-16.04"
+    env:
+      PACKAGE: "binutils"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "sh"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  gcc-nostdc-sh-linux:
+    runs-on: "ubuntu-16.04"
+    needs: ["libisl-linux", "binutils-sh-linux"]
+    env:
+      PACKAGE: "gcc/nostdc"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "sh"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  gcc-newlib-sh-linux:
+    runs-on: "ubuntu-16.04"
+    needs: ["libisl-linux", "binutils-sh-linux", "gcc-nostdc-sh-linux"]
+    env:
+      PACKAGE: "gcc/newlib"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "sh"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  gcc-musl-sh-linux:
+    runs-on: "ubuntu-16.04"
+    needs: "libisl-linux"
+    env:
+      PACKAGE: "gcc/linux-musl"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "sh"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  gdb-sh-linux:
+    runs-on: "ubuntu-16.04"
+    needs: ["libisl-linux", "binutils-sh-linux", "gcc-nostdc-sh-linux"]
+    env:
+      PACKAGE: "gdb"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "sh"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  toolchain-or1k-linux:
+    runs-on: "ubuntu-16.04"
+    needs: "libisl-linux"
+    env:
+      PACKAGE: "toolchain/linux-musl"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "or1k"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  toolchain-riscv32-linux:
+    runs-on: "ubuntu-16.04"
+    needs: "libisl-linux"
+    env:
+      PACKAGE: "toolchain/linux-musl"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "riscv32"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  toolchain-riscv64-linux:
+    runs-on: "ubuntu-16.04"
+    needs: "libisl-linux"
+    env:
+      PACKAGE: "toolchain/linux-musl"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "riscv64"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  toolchain-sh-linux:
+    runs-on: "ubuntu-16.04"
+    needs: "libisl-linux"
+    env:
+      PACKAGE: "toolchain/linux-musl"
+      OS_NAME: "linux"
+      TOOLCHAIN_ARCH: "sh"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  libisl-osx:
+    runs-on: "macos-latest"
+    env:
+      PACKAGE: "lib/isl"
+      OS_NAME: "osx"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - run: brew install coreutils boost
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  binutils-riscv32-osx:
+    runs-on: "macos-latest"
+    env:
+      PACKAGE: "binutils"
+      OS_NAME: "osx"
+      TOOLCHAIN_ARCH: "riscv32"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - run: brew install coreutils boost
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  binutils-riscv64-osx:
+    runs-on: "macos-latest"
+    env:
+      PACKAGE: "binutils"
+      OS_NAME: "osx"
+      TOOLCHAIN_ARCH: "riscv64"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - run: brew install coreutils boost
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  binutils-lm32-osx:
+    runs-on: "macos-latest"
+    env:
+      PACKAGE: "binutils"
+      OS_NAME: "osx"
+      TOOLCHAIN_ARCH: "lm32"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - run: brew install coreutils boost
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  binutils-ppc64le-osx:
+    runs-on: "macos-latest"
+    env:
+      PACKAGE: "binutils"
+      OS_NAME: "osx"
+      TOOLCHAIN_ARCH: "ppc64le"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - run: brew install coreutils boost
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  sdcc-linux:
+    runs-on: "ubuntu-16.04"
+    env:
+      PACKAGE: "sdcc"
+      OS_NAME: "linux"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  sdcc-osx:
+    runs-on: "macos-latest"
+    env:
+      PACKAGE: "sdcc"
+      OS_NAME: "osx"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - run: brew install coreutils boost
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  sdcc-windows:
+    runs-on: "windows-latest"
+    env:
+      PACKAGE: "sdcc"
+      OS_NAME: "windows"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
   master-package:
     runs-on: "ubuntu-16.04"
     env:
