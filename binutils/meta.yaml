@@ -21,8 +21,9 @@ build:
 
 requirements:
   build:
-   - texinfo
-   - {{ compiler('c') }}
+    - {{ compiler('c') }}
+    - make
+    - texinfo
 
 test:
   commands:

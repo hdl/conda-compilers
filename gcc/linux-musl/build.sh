@@ -17,6 +17,11 @@ else
 	echo "PKG_VERSION: '$PKG_VERSION'"
 fi
 
+cd $BUILD_PREFIX/bin
+ln -s "$AR" ar
+ln -s "$OBJDUMP" objdump
+cd -
+
 if [ x"$TRAVIS" = xtrue ]; then
 	CPU_COUNT=2
 fi

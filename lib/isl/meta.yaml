@@ -21,6 +21,7 @@ requirements:
     - clangdev        # [win]
     - lld             # [win]
     - posix           # [win]
+    - make            # [unix]
   host:
     - gmp             # [unix]
   run:

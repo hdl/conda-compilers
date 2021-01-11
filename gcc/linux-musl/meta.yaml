@@ -47,9 +47,11 @@ build:
 
 requirements:
   build:
-    - texinfo
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - file  # Absent in the `main` channel; requires conda-forge.
+    - make
+    - texinfo
   host:
     # These are taken from the output of the configure scripts
     - gmp >=4.3.2

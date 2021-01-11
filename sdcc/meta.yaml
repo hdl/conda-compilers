@@ -23,8 +23,11 @@ build:
 
 requirements:
   build:
+    # On macOS tools from coreutils are used
     - {{ compiler('c') }}     [not osx]
     - {{ compiler('cxx') }}   [not osx]
+    - bison                   [linux]
+    - make                    [linux]
     - m2w64-toolchain         [win]
     - m2-bison                [win]
     - m2-patch                [win]
