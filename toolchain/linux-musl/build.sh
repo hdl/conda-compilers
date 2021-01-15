@@ -3,6 +3,10 @@
 # gcc newlib build
 set -e
 
+cd $BUILD_PREFIX/bin
+ln -s "$AR" ar
+cd -
+
 if [ -z "${TOOLCHAIN_ARCH}" ]; then
 	export | grep -i toolchain
 	echo "Missing \${TOOLCHAIN_ARCH} env value"

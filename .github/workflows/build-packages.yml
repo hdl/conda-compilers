@@ -445,7 +445,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - run: brew install coreutils boost
       - uses: litex-hub/litex-conda-ci@master
 
   #33
@@ -459,7 +458,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - run: brew install coreutils boost
       - uses: litex-hub/litex-conda-ci@master
 
   #34
@@ -473,7 +471,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - run: brew install coreutils boost
       - uses: litex-hub/litex-conda-ci@master
 
   #35
@@ -487,7 +484,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - run: brew install coreutils boost
       - uses: litex-hub/litex-conda-ci@master
 
   #36
@@ -501,7 +497,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - run: brew install coreutils boost
       - uses: litex-hub/litex-conda-ci@master
 
   #37
