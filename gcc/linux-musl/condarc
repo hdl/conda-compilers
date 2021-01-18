@@ -1,4 +1,5 @@
 channels:
+  - CI_LABEL
   - litex-hub
   - defaults
   - conda-forge
