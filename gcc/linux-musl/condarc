@@ -1,5 +1,3 @@
 channels:
-  - CI_LABEL
-  - litex-hub
-  - defaults
+  - CONDA_BUILD_PREPARE_CHANNELS
   - conda-forge
