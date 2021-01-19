@@ -24,7 +24,6 @@ python -m pip install git+https://github.com/litex-hub/conda-build-prepare@solve
 
 # The last channel will be on top of the environment's channel list
 ADDITIONAL_CHANNELS="litex-hub $(echo $GITHUB_REPOSITORY | sed -e's@/.*$@@') litex-hub/label/ci-$branch-$GITHUB_RUN_ID $(echo $GITHUB_REPOSITORY | sed -e's@/.*$@@')/label/ci-$branch-$GITHUB_RUN_ID"
-CI_LABEL="litex-hub/label/ci-$branch-$GITHUB_RUN_ID"
 
 ADDITIONAL_PACKAGES="conda-build=3.20.3 conda-verify jinja2 pexpect python=3.7"
 if [[ "$OS_NAME" != 'windows' ]]; then
@@ -32,7 +31,7 @@ if [[ "$OS_NAME" != 'windows' ]]; then
 fi
 
 # Prepare the recipe and create workdir/conda-env to be activated
-python -m conda_build_prepare --channels $ADDITIONAL_CHANNELS --packages $ADDITIONAL_PACKAGES --ci-label $CI_LABEL --dir workdir $PACKAGE
+python -m conda_build_prepare --channels $ADDITIONAL_CHANNELS --packages $ADDITIONAL_PACKAGES --dir workdir $PACKAGE
 
 # Freshly created conda environment will be activated by the common.sh
 source $GITHUB_WORKSPACE/.github/scripts/common.sh

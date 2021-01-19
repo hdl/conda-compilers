@@ -1,3 +1,4 @@
 channels:
-  - CONDA_BUILD_PREPARE_CHANNELS
+  - litex-hub
+  - defaults
   - conda-forge
