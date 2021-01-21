@@ -10,7 +10,10 @@ source:
   md5: e2be862b79d74234e468981bcae2a964
 
 build:
-  number: 0
+  # number: 201803050325
+  number: {{ environ.get('DATE_NUM') }}
+  # string: 20180305_0325
+  string: {{ environ.get('DATE_STR') }}
   skip: True   # [win and vc<14]
   run_exports:
     - {{ pin_subpackage("isl", max_pin="x.x") }}
