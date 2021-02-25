@@ -26,7 +26,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #2
   binutils-or1k-linux:
@@ -39,7 +39,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #3
   gcc-nostdc-or1k-linux:
@@ -53,7 +53,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #4
   gcc-newlib-or1k-linux:
@@ -67,7 +67,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #5
   gcc-musl-or1k-linux:
@@ -81,7 +81,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #6
   gdb-or1k-linux:
@@ -95,7 +95,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #7
   binutils-riscv32-linux:
@@ -108,7 +108,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #8
   gcc-nostdc-riscv32-linux:
@@ -122,7 +122,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #9
   gcc-newlib-riscv32-linux:
@@ -136,7 +136,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #10
   gcc-musl-riscv32-linux:
@@ -150,7 +150,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #11
   gdb-riscv32-linux:
@@ -164,7 +164,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #12
   binutils-riscv64-linux:
@@ -177,7 +177,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #13
   gcc-nostdc-riscv64-linux:
@@ -191,7 +191,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #14
   gcc-newlib-riscv64-linux:
@@ -205,7 +205,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #15
   gcc-musl-riscv64-linux:
@@ -219,7 +219,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #16
   gdb-riscv64-linux:
@@ -233,7 +233,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #17
   binutils-lm32-linux:
@@ -246,7 +246,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #18
   gcc-nostdc-lm32-linux:
@@ -260,7 +260,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #19
   gcc-newlib-lm32-linux:
@@ -274,7 +274,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #20
   gdb-lm32-linux:
@@ -288,7 +288,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #21
   binutils-ppc64le-linux:
@@ -301,7 +301,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #22
   gcc-musl-ppc64le-linux:
@@ -315,7 +315,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #23
   binutils-sh-linux:
@@ -328,7 +328,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #24
   gcc-nostdc-sh-linux:
@@ -342,7 +342,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #25
   gcc-newlib-sh-linux:
@@ -356,7 +356,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #26
   gcc-musl-sh-linux:
@@ -370,7 +370,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #27
   gdb-sh-linux:
@@ -384,7 +384,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #28
   toolchain-or1k-linux:
@@ -398,7 +398,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #29
   toolchain-riscv32-linux:
@@ -412,7 +412,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #30
   toolchain-riscv64-linux:
@@ -426,7 +426,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #31
   toolchain-sh-linux:
@@ -440,7 +440,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #32
   libisl-osx:
@@ -452,7 +452,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #33
   binutils-riscv32-osx:
@@ -465,7 +465,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #34
   binutils-riscv64-osx:
@@ -478,7 +478,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #35
   binutils-lm32-osx:
@@ -491,7 +491,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #36
   binutils-ppc64le-osx:
@@ -504,7 +504,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #37
   sdcc-linux:
@@ -516,7 +516,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #38
   sdcc-osx:
@@ -529,7 +529,7 @@ jobs:
         with:
           submodules: 'true'
       - run: brew install coreutils boost
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   #39
   sdcc-windows:
@@ -542,7 +542,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@master
+      - uses: hdl/conda-ci@master
 
   master-package:
     runs-on: "ubuntu-16.04"
