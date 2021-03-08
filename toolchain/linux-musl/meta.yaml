@@ -1,6 +1,6 @@
 package:
   name: toolchain-{{ environ.get('TOOLCHAIN_ARCH') }}-linux-musl
-  version: {{ environ.get('GITREV').replace('-', '_') }}
+  version: 0.0  # conda-build-prepare will set version based on the git source
 
 source:
   git_url: https://git.zv.io/toolchains/musl-cross-make.git
