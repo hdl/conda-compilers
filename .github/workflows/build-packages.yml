@@ -19,19 +19,6 @@ defaults:
   run:
     shell: bash
 jobs:
-  gcc-newlib-riscv32-linux:
-    runs-on: "ubuntu-16.04"
-    env:
-      PACKAGE: "gcc/newlib"
-      OS_NAME: "linux"
-      TOOLCHAIN_ARCH: "riscv32"
-      CFLAGS_FOR_TARGET: "-g -O2 -mcmodel=medany"
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
-      - uses: hdl/conda-ci@master
-
   gcc-newlib-riscv64-linux:
     runs-on: "ubuntu-16.04"
     env:

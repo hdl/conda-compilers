@@ -112,6 +112,7 @@ $SRC_DIR/newlib/configure \
 	\
 	--enable-multilib \
 	\
+	CFLAGS_FOR_TARGET=$CFLAGS_FOR_TARGET\
 
 make -j$CPU_COUNT
 make DESTDIR=$PREFIX install
@@ -152,6 +153,7 @@ $SRC_DIR/gcc/configure \
 	--disable-shared \
 	--disable-tls \
 	\
+	CFLAGS_FOR_TARGET=$CFLAGS_FOR_TARGET\
 
 
 make -j$CPU_COUNT
