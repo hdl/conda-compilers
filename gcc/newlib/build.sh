@@ -79,7 +79,7 @@ $TARGET-as --version
 echo -n "---?"
 which $TARGET-gcc
 ls -l $(which $TARGET-gcc)
-file $(which $TARGET-gcc)
+file $(which $TARGET-gcc) || true
 echo "---"
 $TARGET-gcc --version 2>&1
 echo "---"

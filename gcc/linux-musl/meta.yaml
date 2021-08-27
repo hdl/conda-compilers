@@ -44,8 +44,6 @@ build:
     - 'libexec/**/gcc'
     - 'libexec/**/lto*'
     - 'libexec/**/plugin/gengtype'
-  ignore_run_exports_from:
-    - file  # To make sure there are no run requirements from conda-forge
 
 requirements:
   build:
@@ -54,7 +52,6 @@ requirements:
     - make
     - texinfo
   host:
-    - file  # Absent in the `main` channel; requires conda-forge.
     # These are taken from the output of the configure scripts
     - gmp >=4.3.2
     - mpfr >=2.4.2

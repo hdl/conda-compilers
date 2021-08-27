@@ -35,7 +35,7 @@ cd $SRC_DIR
 echo -n "---?"
 which $LINUX_TARGET-as
 ls -l $(which $LINUX_TARGET-as)
-file $(which $LINUX_TARGET-as)
+file $(which $LINUX_TARGET-as) || true
 echo "---"
 $LINUX_TARGET-as --version 2>&1
 echo "---"
