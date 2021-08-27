@@ -53,7 +53,7 @@ cd $SRC_DIR
 echo -n "---?"
 which $LINUX_TARGET-gcc
 ls -l $(which $LINUX_TARGET-gcc)
-file $(which $LINUX_TARGET-gcc)
+file $(which $LINUX_TARGET-gcc) || true
 echo "---"
 $LINUX_TARGET-gcc --version 2>&1
 echo "---"
