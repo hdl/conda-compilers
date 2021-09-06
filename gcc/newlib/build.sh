@@ -135,7 +135,7 @@ $SRC_DIR/gcc/configure \
 	\
 	--target=$TARGET \
 	--with-pkgversion=$PKG_VERSION \
-	--enable-languages="c" \
+	--enable-languages="c,c++" \
 	--enable-threads=single \
 	--enable-multilib \
 	\
