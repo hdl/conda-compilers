@@ -101,7 +101,7 @@ $SRC_DIR/gcc/configure \
 	\
 	--target=$TARGET \
 	--with-pkgversion=$PKG_VERSION \
-	--enable-languages="c,c++" \
+	--enable-languages="c" \
 	--enable-threads=single \
 	--enable-multilib \
 	\
