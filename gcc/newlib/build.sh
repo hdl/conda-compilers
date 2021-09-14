@@ -106,7 +106,7 @@ cd build-newlib
 $SRC_DIR/newlib/configure \
 	--target=$TARGET \
 	\
-        --prefix=/ \
+	--prefix=$PREFIX \
 	\
 	--disable-newlib-supplied-syscalls \
 	\
@@ -114,7 +114,7 @@ $SRC_DIR/newlib/configure \
 	\
 
 make -j$CPU_COUNT
-make DESTDIR=$PREFIX install
+make install
 cd ..
 
 mkdir -p build-gcc
@@ -124,8 +124,8 @@ cd build-gcc
 #        --prefix=$PREFIX \
 $SRC_DIR/gcc/configure \
 	\
-        --prefix=/ \
-	--program-prefix=$TARGET-newlib- \
+	--prefix=$PREFIX \
+	--program-prefix=$TARGET- \
 	\
         --with-gmp=$CONDA_PREFIX \
         --with-mpfr=$CONDA_PREFIX \
@@ -155,11 +155,11 @@ $SRC_DIR/gcc/configure \
 
 
 make -j$CPU_COUNT
-make DESTDIR=${PREFIX} install-strip
+make install-strip
 
 # Install aliases for the binutil tools
 for BINUTIL in $(ls $PREFIX/bin/$TARGET-* | grep /$TARGET-); do
-	NEWLIB_BINUTIL="$(echo $BINUTIL | sed -e"s_/$TARGET-_/$TARGET-newlib-_" -e's/newlib-newlib/newlib/')"
+	NEWLIB_BINUTIL="$(echo $BINUTIL | sed -e"s_/$TARGET-_/$TARGET-newlib-_")"
 
 	if [ ! -e "$NEWLIB_BINUTIL" ]; then
 		ln -sv "$BINUTIL" "$NEWLIB_BINUTIL"
