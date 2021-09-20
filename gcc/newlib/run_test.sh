@@ -7,6 +7,7 @@ set +e
 
 TARGET=${TOOLCHAIN_ARCH}-elf
 GCC=$TARGET-newlib-gcc
+GXX=$TARGET-newlib-g++
 OBJDUMP=$TARGET-objdump
 
 case "${TOOLCHAIN_ARCH}" in
@@ -123,5 +124,63 @@ $TARGET-objdump -g ./main 2>&1 \
 SUCCESS=$?
 if [ $SUCCESS -ne 0 ]; then
 	echo "Compiled binary not linked against newlib!"
+	exit 1
+fi
+
+# Check the compiler can build a simple C++ app which requires the C++
+# standard library.
+echo "==========================================="
+set -x
+$GXX --version
+$GXX --target-help
+$GXX -dumpspecs
+$GXX -dumpversion
+$GXX -dumpmachine
+$GXX -print-search-dirs
+$GXX -print-libgcc-file-name
+$GXX -print-multiarch
+$GXX -print-multi-directory
+$GXX -print-multi-lib
+$GXX -print-multi-os-directory
+$GXX -print-sysroot
+find $($GXX -print-sysroot)
+$GXX -print-sysroot-headers-suffix
+echo "==========================================="
+
+echo "Compile and link a 'bare metal' binary with libstdc++"
+
+cat > main.cpp <<EOF
+#include <iostream>
+
+int main() {
+	std::cout << "Hello world!" << std::endl;
+}
+EOF
+
+echo "Compiling main"
+$GXX -v -g main.cpp -o main-cpp -Wl,-Map=output-cpp.map
+SUCCESS=$?
+if [ $SUCCESS -ne 0 ]; then
+	echo "Compiler didn't exit successfully."
+	exit 1
+fi
+
+if [ ! -e main-cpp ]; then
+	echo "Compiler didn't make a binary output file!"
+	exit 1
+fi
+
+file main-cpp
+echo
+echo "output-cpp.map"
+echo "-------------------------------------------"
+cat output-cpp.map \
+	| sed -e's-[^ ]\+/bin/-[BIN]/-g' -e's-[^ ]\+/work/-[WORK]/-g'
+echo "-------------------------------------------"
+echo
+
+$TARGET-objdump -f ./main-cpp
+if ! $TARGET-objdump -f ./main-cpp | grep -q "architecture: ${ELF_ARCH}"; then
+	echo "Compiled binary output not correct architecture!"
 	exit 1
 fi
