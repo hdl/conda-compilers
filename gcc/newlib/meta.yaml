@@ -15,6 +15,7 @@ source:
     folder: newlib
 
 build:
+  detect_binary_files_with_prefix: False
   # number: 201803050325
   number: {{ environ.get('DATE_NUM') }}
   # string: 20180305_0325
