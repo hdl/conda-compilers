@@ -127,11 +127,11 @@ $SRC_DIR/gcc/configure \
 	--prefix=$PREFIX \
 	--program-prefix=$TARGET-newlib- \
 	\
-        --with-gmp=$CONDA_PREFIX \
-        --with-mpfr=$CONDA_PREFIX \
-        --with-mpc=$CONDA_PREFIX \
-        --with-isl=$CONDA_PREFIX \
-        --with-cloog=$CONDA_PREFIX \
+	--with-gmp=$CONDA_PREFIX \
+	--with-mpfr=$CONDA_PREFIX \
+	--with-mpc=$CONDA_PREFIX \
+	--with-isl=$CONDA_PREFIX \
+	--with-cloog=$CONDA_PREFIX \
 	\
 	--target=$TARGET \
 	--with-pkgversion=$PKG_VERSION \
