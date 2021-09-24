@@ -26,7 +26,7 @@ jobs:
 
   #1
   libisl-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     env:
       PACKAGE: "lib/isl"
       OS_NAME: "linux"
@@ -38,7 +38,7 @@ jobs:
 
   #2
   binutils-or1k-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     env:
       PACKAGE: "binutils"
       OS_NAME: "linux"
@@ -51,7 +51,7 @@ jobs:
 
   #3
   gcc-nostdc-or1k-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: ["libisl-linux", "binutils-or1k-linux"]
     env:
       PACKAGE: "gcc/nostdc"
@@ -65,7 +65,7 @@ jobs:
 
   #4
   gcc-newlib-or1k-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: ["libisl-linux", "binutils-or1k-linux", "gcc-nostdc-or1k-linux"]
     env:
       PACKAGE: "gcc/newlib"
@@ -79,7 +79,7 @@ jobs:
 
   #5
   gcc-musl-or1k-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: "libisl-linux"
     env:
       PACKAGE: "gcc/linux-musl"
@@ -93,7 +93,7 @@ jobs:
 
   #6
   gdb-or1k-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: ["libisl-linux", "binutils-or1k-linux", "gcc-nostdc-or1k-linux"]
     env:
       PACKAGE: "gdb"
@@ -107,7 +107,7 @@ jobs:
 
   #7
   binutils-riscv32-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     env:
       PACKAGE: "binutils"
       OS_NAME: "linux"
@@ -120,7 +120,7 @@ jobs:
 
   #8
   gcc-nostdc-riscv32-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: ["libisl-linux", "binutils-riscv32-linux"]
     env:
       PACKAGE: "gcc/nostdc"
@@ -134,7 +134,7 @@ jobs:
 
   #9
   gcc-newlib-riscv32-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: ["libisl-linux", "binutils-riscv32-linux", "gcc-nostdc-riscv32-linux"]
     env:
       PACKAGE: "gcc/newlib"
@@ -148,7 +148,7 @@ jobs:
 
   #10
   gcc-musl-riscv32-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: "libisl-linux"
     env:
       PACKAGE: "gcc/linux-musl"
@@ -162,7 +162,7 @@ jobs:
 
   #11
   gdb-riscv32-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: ["libisl-linux", "binutils-riscv32-linux", "gcc-nostdc-riscv32-linux"]
     env:
       PACKAGE: "gdb"
@@ -176,7 +176,7 @@ jobs:
 
   #12
   binutils-riscv64-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     env:
       PACKAGE: "binutils"
       OS_NAME: "linux"
@@ -189,7 +189,7 @@ jobs:
 
   #13
   gcc-nostdc-riscv64-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: ["libisl-linux", "binutils-riscv64-linux"]
     env:
       PACKAGE: "gcc/nostdc"
@@ -203,7 +203,7 @@ jobs:
 
   #14
   gcc-newlib-riscv64-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: ["libisl-linux", "binutils-riscv64-linux", "gcc-nostdc-riscv64-linux"]
     env:
       PACKAGE: "gcc/newlib"
@@ -217,7 +217,7 @@ jobs:
 
   #15
   gcc-musl-riscv64-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: "libisl-linux"
     env:
       PACKAGE: "gcc/linux-musl"
@@ -231,7 +231,7 @@ jobs:
 
   #16
   gdb-riscv64-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: ["libisl-linux", "binutils-riscv64-linux", "gcc-nostdc-riscv64-linux"]
     env:
       PACKAGE: "gdb"
@@ -245,7 +245,7 @@ jobs:
 
   #17
   binutils-lm32-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     env:
       PACKAGE: "binutils"
       OS_NAME: "linux"
@@ -258,7 +258,7 @@ jobs:
 
   #18
   gcc-nostdc-lm32-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: ["libisl-linux", "binutils-lm32-linux"]
     env:
       PACKAGE: "gcc/nostdc"
@@ -272,7 +272,7 @@ jobs:
 
   #19
   gcc-newlib-lm32-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: ["libisl-linux", "binutils-lm32-linux", "gcc-nostdc-lm32-linux"]
     env:
       PACKAGE: "gcc/newlib"
@@ -286,7 +286,7 @@ jobs:
 
   #20
   gdb-lm32-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: ["libisl-linux", "binutils-lm32-linux", "gcc-nostdc-lm32-linux"]
     env:
       PACKAGE: "gdb"
@@ -300,7 +300,7 @@ jobs:
 
   #21
   binutils-ppc64le-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     env:
       PACKAGE: "binutils"
       OS_NAME: "linux"
@@ -313,7 +313,7 @@ jobs:
 
   #22
   gcc-musl-ppc64le-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: "libisl-linux"
     env:
       PACKAGE: "gcc/linux-musl"
@@ -327,7 +327,7 @@ jobs:
 
   #23
   binutils-sh-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     env:
       PACKAGE: "binutils"
       OS_NAME: "linux"
@@ -340,7 +340,7 @@ jobs:
 
   #24
   gcc-nostdc-sh-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: ["libisl-linux", "binutils-sh-linux"]
     env:
       PACKAGE: "gcc/nostdc"
@@ -354,7 +354,7 @@ jobs:
 
   #25
   # gcc-newlib-sh-linux:
-  #   runs-on: "ubuntu-16.04"
+  #   runs-on: "ubuntu-20.04"
   #   needs: ["libisl-linux", "binutils-sh-linux", "gcc-nostdc-sh-linux"]
   #   env:
   #     PACKAGE: "gcc/newlib"
@@ -368,7 +368,7 @@ jobs:
 
   #26
   gcc-musl-sh-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: "libisl-linux"
     env:
       PACKAGE: "gcc/linux-musl"
@@ -382,7 +382,7 @@ jobs:
 
   #27
   gdb-sh-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: ["libisl-linux", "binutils-sh-linux", "gcc-nostdc-sh-linux"]
     env:
       PACKAGE: "gdb"
@@ -396,7 +396,7 @@ jobs:
 
   #28
   toolchain-or1k-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: "libisl-linux"
     env:
       PACKAGE: "toolchain/linux-musl"
@@ -410,7 +410,7 @@ jobs:
 
   #29
   toolchain-riscv32-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: "libisl-linux"
     env:
       PACKAGE: "toolchain/linux-musl"
@@ -424,7 +424,7 @@ jobs:
 
   #30
   toolchain-riscv64-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: "libisl-linux"
     env:
       PACKAGE: "toolchain/linux-musl"
@@ -438,7 +438,7 @@ jobs:
 
   #31
   toolchain-sh-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: "libisl-linux"
     env:
       PACKAGE: "toolchain/linux-musl"
@@ -516,7 +516,7 @@ jobs:
 
   #37
   sdcc-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     env:
       PACKAGE: "sdcc"
       OS_NAME: "linux"
@@ -553,7 +553,7 @@ jobs:
       - uses: hdl/conda-ci@master
 
   master-package:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     env:
       OS_NAME: "linux"
     steps:
