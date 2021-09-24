@@ -18,7 +18,7 @@ on:
 env:
   ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
   ANACONDA_USER: ${{ secrets.ANACONDA_USER }}
-  NUM_OF_JOBS: 39
+  NUM_OF_JOBS: 38
 defaults:
   run:
     shell: bash
@@ -353,20 +353,6 @@ jobs:
       - uses: hdl/conda-ci@master
 
   #25
-  # gcc-newlib-sh-linux:
-  #   runs-on: "ubuntu-20.04"
-  #   needs: ["libisl-linux", "binutils-sh-linux", "gcc-nostdc-sh-linux"]
-  #   env:
-  #     PACKAGE: "gcc/newlib"
-  #     OS_NAME: "linux"
-  #     TOOLCHAIN_ARCH: "sh"
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #       with:
-  #         submodules: 'true'
-  #     - uses: hdl/conda-ci@master
-
-  #26
   gcc-musl-sh-linux:
     runs-on: "ubuntu-20.04"
     needs: "libisl-linux"
@@ -380,7 +366,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #27
+  #26
   gdb-sh-linux:
     runs-on: "ubuntu-20.04"
     needs: ["libisl-linux", "binutils-sh-linux", "gcc-nostdc-sh-linux"]
@@ -394,7 +380,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #28
+  #27
   toolchain-or1k-linux:
     runs-on: "ubuntu-20.04"
     needs: "libisl-linux"
@@ -408,7 +394,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #29
+  #28
   toolchain-riscv32-linux:
     runs-on: "ubuntu-20.04"
     needs: "libisl-linux"
@@ -422,7 +408,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #30
+  #29
   toolchain-riscv64-linux:
     runs-on: "ubuntu-20.04"
     needs: "libisl-linux"
@@ -436,7 +422,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #31
+  #30
   toolchain-sh-linux:
     runs-on: "ubuntu-20.04"
     needs: "libisl-linux"
@@ -450,7 +436,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #32
+  #31
   libisl-osx:
     runs-on: "macos-latest"
     env:
@@ -462,7 +448,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #33
+  #32
   binutils-riscv32-osx:
     runs-on: "macos-latest"
     env:
@@ -475,7 +461,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #34
+  #33
   binutils-riscv64-osx:
     runs-on: "macos-latest"
     env:
@@ -488,7 +474,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #35
+  #34
   binutils-lm32-osx:
     runs-on: "macos-latest"
     env:
@@ -501,7 +487,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #36
+  #35
   binutils-ppc64le-osx:
     runs-on: "macos-latest"
     env:
@@ -514,7 +500,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #37
+  #36
   sdcc-linux:
     runs-on: "ubuntu-20.04"
     env:
@@ -526,7 +512,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #38
+  #37
   sdcc-osx:
     runs-on: "macos-latest"
     env:
@@ -539,7 +525,7 @@ jobs:
       - run: brew install coreutils boost
       - uses: hdl/conda-ci@master
 
-  #39
+  #38
   sdcc-windows:
     runs-on: "windows-latest"
     env:
@@ -551,6 +537,21 @@ jobs:
         with:
           submodules: 'true'
       - uses: hdl/conda-ci@master
+
+  #39
+  # gcc-newlib-sh-linux:
+  #   runs-on: "ubuntu-20.04"
+  #   needs: ["libisl-linux", "binutils-sh-linux", "gcc-nostdc-sh-linux"]
+  #   env:
+  #     PACKAGE: "gcc/newlib"
+  #     OS_NAME: "linux"
+  #     TOOLCHAIN_ARCH: "sh"
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         submodules: 'true'
+  #     - uses: hdl/conda-ci@master
+
 
   master-package:
     runs-on: "ubuntu-20.04"
