@@ -106,7 +106,7 @@ cd build-newlib
 $SRC_DIR/newlib/configure \
 	--target=$TARGET \
 	\
-        --prefix=/ \
+	--prefix=$PREFIX \
 	\
 	--disable-newlib-supplied-syscalls \
 	\
@@ -114,7 +114,7 @@ $SRC_DIR/newlib/configure \
 	\
 
 make -j$CPU_COUNT
-make DESTDIR=$PREFIX install
+make install
 cd ..
 
 mkdir -p build-gcc
@@ -124,18 +124,18 @@ cd build-gcc
 #        --prefix=$PREFIX \
 $SRC_DIR/gcc/configure \
 	\
-        --prefix=/ \
+	--prefix=$PREFIX \
 	--program-prefix=$TARGET-newlib- \
 	\
-        --with-gmp=$CONDA_PREFIX \
-        --with-mpfr=$CONDA_PREFIX \
-        --with-mpc=$CONDA_PREFIX \
-        --with-isl=$CONDA_PREFIX \
-        --with-cloog=$CONDA_PREFIX \
+	--with-gmp=$CONDA_PREFIX \
+	--with-mpfr=$CONDA_PREFIX \
+	--with-mpc=$CONDA_PREFIX \
+	--with-isl=$CONDA_PREFIX \
+	--with-cloog=$CONDA_PREFIX \
 	\
 	--target=$TARGET \
 	--with-pkgversion=$PKG_VERSION \
-	--enable-languages="c" \
+	--enable-languages="c,c++" \
 	--enable-threads=single \
 	--enable-multilib \
 	\
@@ -155,7 +155,7 @@ $SRC_DIR/gcc/configure \
 
 
 make -j$CPU_COUNT
-make DESTDIR=${PREFIX} install-strip
+make install-strip
 
 # Install aliases for the binutil tools
 for BINUTIL in $(ls $PREFIX/bin/$TARGET-* | grep /$TARGET-); do

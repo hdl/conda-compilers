@@ -353,18 +353,18 @@ jobs:
       - uses: hdl/conda-ci@master
 
   #25
-  gcc-newlib-sh-linux:
-    runs-on: "ubuntu-20.04"
-    needs: ["libisl-linux", "binutils-sh-linux", "gcc-nostdc-sh-linux"]
-    env:
-      PACKAGE: "gcc/newlib"
-      OS_NAME: "linux"
-      TOOLCHAIN_ARCH: "sh"
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
-      - uses: hdl/conda-ci@master
+  # gcc-newlib-sh-linux:
+  #   runs-on: "ubuntu-20.04"
+  #   needs: ["libisl-linux", "binutils-sh-linux", "gcc-nostdc-sh-linux"]
+  #   env:
+  #     PACKAGE: "gcc/newlib"
+  #     OS_NAME: "linux"
+  #     TOOLCHAIN_ARCH: "sh"
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         submodules: 'true'
+  #     - uses: hdl/conda-ci@master
 
   #26
   gcc-musl-sh-linux:
