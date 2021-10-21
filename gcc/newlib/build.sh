@@ -169,8 +169,6 @@ ls -l $PREFIX/bin/$TARGET-newlib-*
 
 cd ..
 
-$PREFIX/bin/$TARGET-gcc --version
-$PREFIX/bin/${TOOLCHAIN_ARCH}-unknown-elf-gcc --version
 $PREFIX/bin/$TARGET-newlib-gcc --version
 
 echo $($PREFIX/bin/$TARGET-newlib-gcc --version 2>&1 | head -1 | sed -e"s/$TARGET-gcc (GCC) //")
