@@ -125,7 +125,7 @@ cd build-gcc
 $SRC_DIR/gcc/configure \
 	\
 	--prefix=$PREFIX \
-	--program-prefix=$TARGET-newlib- \
+	--program-prefix=$TARGET- \
 	\
 	--with-gmp=$CONDA_PREFIX \
 	--with-mpfr=$CONDA_PREFIX \
@@ -169,6 +169,7 @@ ls -l $PREFIX/bin/$TARGET-newlib-*
 
 cd ..
 
+$PREFIX/bin/$TARGET-gcc --version
 $PREFIX/bin/$TARGET-newlib-gcc --version
 
 echo $($PREFIX/bin/$TARGET-newlib-gcc --version 2>&1 | head -1 | sed -e"s/$TARGET-gcc (GCC) //")
