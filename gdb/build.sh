@@ -40,8 +40,8 @@ cd build
  \
   --disable-shared \
   --enable-static \
-
-#  --with-system-zlib \
+  --without-python \
+  --without-python-libdir
 
 make -j$CPU_COUNT
 make install

@@ -28,13 +28,11 @@ requirements:
     - gcc-{{ environ.get('TOOLCHAIN_ARCH') }}-elf-nostdc
     - make
     - pkg-config
-    - python
     - texinfo
   host:
     - expat
     - mpfr >=2.4.2
     - ncurses
-    - python
     - xz
     - zlib
   run:
@@ -43,7 +41,6 @@ requirements:
     - mpfr >=2.4.2
     - ncurses
     - zlib
-    - {{ pin_compatible('python', min_pin='x.x', max_pin='x.x') }}
 
 test:
   commands:
