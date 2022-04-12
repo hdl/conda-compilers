@@ -35,6 +35,7 @@ requirements:
     - mpfr >=2.4.2
     - ncurses
     - python
+    - xz
     - zlib
   run:
     - binutils-{{ environ.get('TOOLCHAIN_ARCH') }}-elf
