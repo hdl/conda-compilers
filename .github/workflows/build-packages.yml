@@ -33,7 +33,7 @@ jobs:
       SKIP: "true"  # See https://github.com/hdl/conda-compilers/issues/34
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #2
   binutils-or1k-linux:
@@ -44,7 +44,7 @@ jobs:
       TOOLCHAIN_ARCH: "or1k"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #3
   gcc-nostdc-or1k-linux:
@@ -56,7 +56,7 @@ jobs:
       TOOLCHAIN_ARCH: "or1k"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #4
   gcc-newlib-or1k-linux:
@@ -68,7 +68,7 @@ jobs:
       TOOLCHAIN_ARCH: "or1k"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #5
   gcc-musl-or1k-linux:
@@ -80,7 +80,7 @@ jobs:
       TOOLCHAIN_ARCH: "or1k"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #6
   gdb-or1k-linux:
@@ -92,7 +92,7 @@ jobs:
       TOOLCHAIN_ARCH: "or1k"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #7
   binutils-riscv32-linux:
@@ -103,7 +103,7 @@ jobs:
       TOOLCHAIN_ARCH: "riscv32"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #8
   gcc-nostdc-riscv32-linux:
@@ -115,7 +115,7 @@ jobs:
       TOOLCHAIN_ARCH: "riscv32"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #9
   gcc-newlib-riscv32-linux:
@@ -127,7 +127,7 @@ jobs:
       TOOLCHAIN_ARCH: "riscv32"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #10
   gcc-musl-riscv32-linux:
@@ -139,7 +139,7 @@ jobs:
       TOOLCHAIN_ARCH: "riscv32"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #11
   gdb-riscv32-linux:
@@ -151,7 +151,7 @@ jobs:
       TOOLCHAIN_ARCH: "riscv32"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #12
   binutils-riscv64-linux:
@@ -162,7 +162,7 @@ jobs:
       TOOLCHAIN_ARCH: "riscv64"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #13
   gcc-nostdc-riscv64-linux:
@@ -174,7 +174,7 @@ jobs:
       TOOLCHAIN_ARCH: "riscv64"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #14
   gcc-newlib-riscv64-linux:
@@ -186,7 +186,7 @@ jobs:
       TOOLCHAIN_ARCH: "riscv64"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #15
   gcc-musl-riscv64-linux:
@@ -198,7 +198,7 @@ jobs:
       TOOLCHAIN_ARCH: "riscv64"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #16
   gdb-riscv64-linux:
@@ -210,7 +210,7 @@ jobs:
       TOOLCHAIN_ARCH: "riscv64"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #17
   binutils-lm32-linux:
@@ -221,7 +221,7 @@ jobs:
       TOOLCHAIN_ARCH: "lm32"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #18
   gcc-nostdc-lm32-linux:
@@ -233,7 +233,7 @@ jobs:
       TOOLCHAIN_ARCH: "lm32"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #19
   gcc-newlib-lm32-linux:
@@ -245,7 +245,7 @@ jobs:
       TOOLCHAIN_ARCH: "lm32"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #20
   gdb-lm32-linux:
@@ -257,7 +257,7 @@ jobs:
       TOOLCHAIN_ARCH: "lm32"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #21
   binutils-ppc64le-linux:
@@ -268,7 +268,7 @@ jobs:
       TOOLCHAIN_ARCH: "ppc64le"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #22
   gcc-musl-ppc64le-linux:
@@ -280,7 +280,7 @@ jobs:
       TOOLCHAIN_ARCH: "ppc64le"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #23
   binutils-sh-linux:
@@ -291,7 +291,7 @@ jobs:
       TOOLCHAIN_ARCH: "sh"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #24
   gcc-nostdc-sh-linux:
@@ -303,7 +303,7 @@ jobs:
       TOOLCHAIN_ARCH: "sh"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #25
   gcc-musl-sh-linux:
@@ -315,7 +315,7 @@ jobs:
       TOOLCHAIN_ARCH: "sh"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #26
   gdb-sh-linux:
@@ -327,7 +327,7 @@ jobs:
       TOOLCHAIN_ARCH: "sh"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #27
   toolchain-or1k-linux:
@@ -339,7 +339,7 @@ jobs:
       TOOLCHAIN_ARCH: "or1k"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #28
   toolchain-riscv32-linux:
@@ -351,7 +351,7 @@ jobs:
       TOOLCHAIN_ARCH: "riscv32"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #29
   toolchain-riscv64-linux:
@@ -363,7 +363,7 @@ jobs:
       TOOLCHAIN_ARCH: "riscv64"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #30
   toolchain-sh-linux:
@@ -375,7 +375,7 @@ jobs:
       TOOLCHAIN_ARCH: "sh"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #31
   libisl-osx:
@@ -386,7 +386,7 @@ jobs:
       SKIP: "true"  # See https://github.com/hdl/conda-compilers/issues/34
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #32
   binutils-riscv32-osx:
@@ -397,7 +397,7 @@ jobs:
       TOOLCHAIN_ARCH: "riscv32"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #33
   binutils-riscv64-osx:
@@ -408,7 +408,7 @@ jobs:
       TOOLCHAIN_ARCH: "riscv64"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #34
   binutils-lm32-osx:
@@ -419,7 +419,7 @@ jobs:
       TOOLCHAIN_ARCH: "lm32"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #35
   binutils-ppc64le-osx:
@@ -430,7 +430,7 @@ jobs:
       TOOLCHAIN_ARCH: "ppc64le"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #36
   sdcc-linux:
@@ -440,7 +440,7 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #37
   sdcc-osx:
@@ -451,7 +451,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: brew install coreutils boost
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #38
   sdcc-windows:
@@ -462,7 +462,7 @@ jobs:
       SKIP: "true"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #39
   # gcc-newlib-sh-linux:
@@ -474,19 +474,19 @@ jobs:
   #     TOOLCHAIN_ARCH: "sh"
   #   steps:
   #     - uses: actions/checkout@v2
-  #     - uses: hdl/conda-ci@master
+  #     - uses: hdl/conda-eda/ci@master
 
 
   master-package:
     runs-on: "ubuntu-20.04"
     env:
       OS_NAME: "linux"
-      CI_SCRIPTS_REL_PATH: "conda-ci"
+      CI_SCRIPTS_REL_PATH: "conda-eda"
     steps:
       - uses: actions/checkout@v2
       - uses: actions/checkout@v2
         with:
-          repository: hdl/conda-ci
+          repository: hdl/conda-eda
           ref: master
           path: ${{ env.CI_SCRIPTS_REL_PATH }}
       - uses: actions/setup-python@v1
@@ -495,6 +495,6 @@ jobs:
           packages: urllib3
       - run: |
           # Required internally by the scripts to locate other scripts.
-          export CI_SCRIPTS_PATH="$GITHUB_WORKSPACE/$CI_SCRIPTS_REL_PATH"
+          export CI_SCRIPTS_PATH="$GITHUB_WORKSPACE/$CI_SCRIPTS_REL_PATH/ci"
           bash $CI_SCRIPTS_PATH/install.sh
           python $CI_SCRIPTS_PATH/wait-for-statuses.py
