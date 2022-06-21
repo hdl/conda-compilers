@@ -21,7 +21,7 @@ jobs:
       OS_NAME: "linux"
       SKIP: "true"  # See https://github.com/hdl/conda-compilers/issues/34
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #2
@@ -32,7 +32,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "or1k"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #3
@@ -44,7 +44,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "or1k"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #4
@@ -56,7 +56,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "or1k"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #5
@@ -68,7 +68,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "or1k"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #6
@@ -80,7 +80,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "or1k"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #7
@@ -91,7 +91,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "riscv32"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #8
@@ -103,7 +103,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "riscv32"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #9
@@ -115,7 +115,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "riscv32"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #10
@@ -127,7 +127,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "riscv32"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #11
@@ -139,7 +139,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "riscv32"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #12
@@ -150,7 +150,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "riscv64"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #13
@@ -162,7 +162,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "riscv64"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #14
@@ -174,7 +174,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "riscv64"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #15
@@ -186,7 +186,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "riscv64"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #16
@@ -198,7 +198,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "riscv64"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #17
@@ -209,7 +209,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "lm32"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #18
@@ -221,7 +221,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "lm32"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #19
@@ -233,7 +233,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "lm32"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #20
@@ -245,7 +245,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "lm32"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #21
@@ -256,7 +256,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "ppc64le"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #22
@@ -268,7 +268,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "ppc64le"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #23
@@ -279,7 +279,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "sh"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #24
@@ -291,7 +291,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "sh"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #25
@@ -303,7 +303,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "sh"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #26
@@ -315,7 +315,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "sh"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #27
@@ -327,7 +327,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "or1k"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #28
@@ -339,7 +339,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "riscv32"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #29
@@ -351,7 +351,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "riscv64"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #30
@@ -363,7 +363,7 @@ jobs:
       OS_NAME: "linux"
       TOOLCHAIN_ARCH: "sh"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #31
@@ -374,7 +374,7 @@ jobs:
       OS_NAME: "osx"
       SKIP: "true"  # See https://github.com/hdl/conda-compilers/issues/34
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #32
@@ -385,7 +385,7 @@ jobs:
       OS_NAME: "osx"
       TOOLCHAIN_ARCH: "riscv32"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #33
@@ -396,7 +396,7 @@ jobs:
       OS_NAME: "osx"
       TOOLCHAIN_ARCH: "riscv64"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #34
@@ -407,7 +407,7 @@ jobs:
       OS_NAME: "osx"
       TOOLCHAIN_ARCH: "lm32"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #35
@@ -418,7 +418,7 @@ jobs:
       OS_NAME: "osx"
       TOOLCHAIN_ARCH: "ppc64le"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #36
@@ -428,7 +428,7 @@ jobs:
       PACKAGE: "sdcc"
       OS_NAME: "linux"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #37
@@ -438,7 +438,7 @@ jobs:
       PACKAGE: "sdcc"
       OS_NAME: "osx"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: brew install coreutils boost
       - uses: hdl/conda-eda/ci@master
 
@@ -450,7 +450,7 @@ jobs:
       OS_NAME: "windows"
       SKIP: "true"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #39
@@ -462,5 +462,5 @@ jobs:
   #     OS_NAME: "linux"
   #     TOOLCHAIN_ARCH: "sh"
   #   steps:
-  #     - uses: actions/checkout@v2
+  #     - uses: actions/checkout@v3
   #     - uses: hdl/conda-eda/ci@master
