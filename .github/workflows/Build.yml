@@ -1,27 +1,16 @@
-name: build-packages
+name: Build packages
+
 on:
-  push:
-    # Prevents triggering multiple workflows in PRs. Workflows triggered from
-    # the same commit shouldn't run simultaneously because they're overwriting
-    # each other's packages on Anaconda.
-    branches: [ master ]
-    paths-ignore:
-      - '.github/workflows/tuttest.yml'
-      - 'README.md'
-  pull_request:
-    paths-ignore:
-      - '.github/workflows/tuttest.yml'
-      - 'README.md'
-  workflow_dispatch:
-  schedule:
-    - cron: '0 3 * * *' # run daily at 3:00am (UTC)
+  workflow_call:
+
 env:
   ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
   ANACONDA_USER: ${{ secrets.ANACONDA_USER }}
-  NUM_OF_JOBS: 38
+
 defaults:
   run:
     shell: bash
+
 jobs:
 
   #1
@@ -475,26 +464,3 @@ jobs:
   #   steps:
   #     - uses: actions/checkout@v2
   #     - uses: hdl/conda-eda/ci@master
-
-
-  master-package:
-    runs-on: "ubuntu-20.04"
-    env:
-      OS_NAME: "linux"
-      CI_SCRIPTS_REL_PATH: "conda-eda"
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/checkout@v2
-        with:
-          repository: hdl/conda-eda
-          ref: master
-          path: ${{ env.CI_SCRIPTS_REL_PATH }}
-      - uses: actions/setup-python@v1
-      - uses: BSFishy/pip-action@v1
-        with:
-          packages: urllib3
-      - run: |
-          # Required internally by the scripts to locate other scripts.
-          export CI_SCRIPTS_PATH="$GITHUB_WORKSPACE/$CI_SCRIPTS_REL_PATH/ci"
-          bash $CI_SCRIPTS_PATH/install.sh
-          python $CI_SCRIPTS_PATH/wait-for-statuses.py
