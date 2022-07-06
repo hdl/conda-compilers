@@ -12,8 +12,6 @@ on:
     - cron: '0 23 * * *' # run daily at 23:00 (UTC)
 
 env:
-  ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
-  ANACONDA_USER: ${{ secrets.ANACONDA_USER }}
   OS_NAME: linux
   CI_SCRIPTS_REL_PATH: "conda-eda"
 
@@ -22,6 +20,9 @@ jobs:
 
   Build:
     uses: ./.github/workflows/Build.yml
+    secrets:
+      ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
+      ANACONDA_USER: ${{ secrets.ANACONDA_USER }}
 
 
   Upload:
@@ -35,11 +36,15 @@ jobs:
           repository: hdl/conda-eda
           ref: master
           path: ${{ env.CI_SCRIPTS_REL_PATH }}
-      - run: |
+      - name: Upload packages
+        run: |
           # Required internally by the scripts to locate other scripts.
           export CI_SCRIPTS_PATH="$GITHUB_WORKSPACE/$CI_SCRIPTS_REL_PATH/ci"
           "$CI_SCRIPTS_PATH"/install.sh
           "$CI_SCRIPTS_PATH"/upload-packages.sh
+        env:
+          ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
+          ANACONDA_USER: ${{ secrets.ANACONDA_USER }}
 
 
   Cleanup:
@@ -51,8 +56,12 @@ jobs:
           repository: hdl/conda-eda
           ref: master
           path: ${{ env.CI_SCRIPTS_REL_PATH }}
-      - run: |
+      - name: Cleanup Anaconda
+        run: |
           # Required internally by the scripts to locate other scripts.
           export CI_SCRIPTS_PATH="$GITHUB_WORKSPACE/$CI_SCRIPTS_REL_PATH/ci"
           "$CI_SCRIPTS_PATH"/install.sh
           "$CI_SCRIPTS_PATH"/cleanup-anaconda.sh
+        env:
+          ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
+          ANACONDA_USER: ${{ secrets.ANACONDA_USER }}
