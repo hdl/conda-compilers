@@ -1,4 +1,4 @@
-{% set version = '9.2.0' %}
+{% set version = '10.1.0' %}
 {% set binutilsversion = '2.34' %}
 
 package:
