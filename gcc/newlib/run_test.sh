@@ -6,8 +6,8 @@ set +x
 set +e
 
 TARGET=${TOOLCHAIN_ARCH}-elf
-GCC=$TARGET-newlib-gcc
-GXX=$TARGET-newlib-g++
+GCC=$TARGET-gcc
+GXX=$TARGET-g++
 OBJDUMP=$TARGET-objdump
 
 case "${TOOLCHAIN_ARCH}" in
